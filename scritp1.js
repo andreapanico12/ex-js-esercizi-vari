@@ -60,7 +60,9 @@ function creaPromemoria( tempo ){
   
   const promemoria = setTimeout(() => console.log("Ricorda di fare una pausa!"), tempo)
 
-  return promemoria
+  return function(){
+    promemoria
+  }
 }
 
 creaPromemoria( 1000 )
@@ -194,7 +196,6 @@ const creaLimiter = (funzione, tempoLimite) =>{
       tempoUltimaEsecuzione = ora;
       funzione()
     } else {
-      tempoUltimaEsecuzione = ora;
       console.log( "funzione ancora non disponibile")
     }
   }
